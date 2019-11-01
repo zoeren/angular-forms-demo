@@ -20,12 +20,12 @@ export class AppComponent {
   outputs = {
     addStepAfter: (info: AddStepInfo) => {
       const afterIndex = this.steps.indexOf(info.afterStep);
-      this.steps.splice(afterIndex + 1, 0, info.stepToAdd);
+      this.steps.splice(afterIndex + 1, 0, ...info.stepsToAdd);
     }
-  }
+  };
 
   getInput(step: Step) {
-    return { thisStep: step, ...step.inputs }
+    return { thisStep: step, ...step.inputs };
   }
 }
 
@@ -35,6 +35,6 @@ export interface Step {
 }
 
 export interface AddStepInfo {
-  stepToAdd: Step;
+  stepsToAdd: Step[];
   afterStep: Step;
 }

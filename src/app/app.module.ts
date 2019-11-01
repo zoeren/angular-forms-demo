@@ -13,7 +13,9 @@ import { AppComponent } from './app.component';
 import { HospitalizationComponent } from './hospitalization/hospitalization.component';
 import { NameComponent } from './name/name.component';
 import { FinishedComponent } from './finished/finished.component';
-import { HospitalizationItemComponent } from './hospitalization-item/hospitalization-item.component';
+import { HospitalizationAddressItemComponent } from './hospitalization-address-item/hospitalization-address-item.component';
+import { HospitalizationContactsItemComponent } from './hospitalization-contacts-item/hospitalization-contacts-item.component';
+import { HospitalizationPeriodsItemComponent } from './hospitalization-periods-item/hospitalization-periods-item.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HospitalizationItemComponent } from './hospitalization-item/hospitaliza
     HospitalizationComponent,
     NameComponent,
     FinishedComponent,
-    HospitalizationItemComponent
+    HospitalizationAddressItemComponent,
+    HospitalizationContactsItemComponent,
+    HospitalizationPeriodsItemComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,16 @@ import { HospitalizationItemComponent } from './hospitalization-item/hospitaliza
     BrowserAnimationsModule,
     MatButtonModule,
     MatStepperModule,
-    DynamicModule.withComponents([NameComponent, HospitalizationComponent, HospitalizationItemComponent, FinishedComponent]),
+    DynamicModule.withComponents(
+      [
+        NameComponent,
+        HospitalizationComponent,
+        HospitalizationAddressItemComponent,
+        HospitalizationContactsItemComponent,
+        HospitalizationPeriodsItemComponent,
+        FinishedComponent
+      ]
+    ),
     ReactiveFormsModule,
     FormlyModule.forRoot(),
     FormlyMaterialModule

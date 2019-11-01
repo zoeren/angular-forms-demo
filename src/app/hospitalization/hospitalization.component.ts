@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { AddStepInfo, Step } from '../app.component';
-import { HospitalizationItemComponent } from '../hospitalization-item/hospitalization-item.component';
+import { HospitalizationAddressItemComponent } from '../hospitalization-address-item/hospitalization-address-item.component';
+import { HospitalizationPeriodsItemComponent } from '../hospitalization-periods-item/hospitalization-periods-item.component';
+import { HospitalizationContactsItemComponent } from '../hospitalization-contacts-item/hospitalization-contacts-item.component';
 
 @Component({
   selector: 'app-hospitalization',
@@ -9,21 +11,31 @@ import { HospitalizationItemComponent } from '../hospitalization-item/hospitaliz
 })
 export class HospitalizationComponent implements OnInit {
 
-  @Input() thisStep : Step;
+  @Input() thisStep: Step;
   @Input() lala: string;
-  @Output() addStepAfter = new EventEmitter<AddStepInfo>()
+  @Output() addStepAfter = new EventEmitter<AddStepInfo>();
+
+  stepsToAdd = [
+    {
+      component: HospitalizationAddressItemComponent
+    },
+    {
+      component: HospitalizationContactsItemComponent
+    },
+    {
+      component: HospitalizationPeriodsItemComponent
+    }
+  ];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  addStep(){
+  addStep() {
     this.addStepAfter.emit({
       afterStep: this.thisStep,
-      stepToAdd: {
-        component: HospitalizationItemComponent
-      }
-    })
+      stepsToAdd: this.stepsToAdd
+    });
   }
 }

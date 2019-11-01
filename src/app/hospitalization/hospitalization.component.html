@@ -1,11 +1,15 @@
-<p>hospitalization works!</p>
+<h1>Hospitalizations</h1>
 <p>My name is {{lala}}</p>
 
-<button mat-raised-button (click)="addStep()">
-    Add
+<h3>
+    Any hospitalizations?
+</h3>
+
+<button mat-raised-button matStepperNext (click)="addStep()">
+    Yes
+</button>
+<button mat-raised-button matStepperNext>
+    No
 </button>
 
-<div>
-    <button mat-raised-button matStepperPrevious>Back</button>
-    <button mat-raised-button matStepperNext>Next</button>
-</div>
+<button mat-raised-button matStepperPrevious>Back</button>
