@@ -1,0 +1,8 @@
+<div>
+  <mat-horizontal-stepper>
+    <mat-step *ngFor="let step of steps">
+      <ndc-dynamic [ndcDynamicComponent]="step.component" [ndcDynamicInputs]="getInput(step)" [ndcDynamicOutputs]="outputs" >
+      </ndc-dynamic>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
